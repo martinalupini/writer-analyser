@@ -33,7 +33,7 @@ void main(int argc, char **argv){
 
 	fd = open(filename, O_RDONLY);
 	if(fd == -1){
-		perror("Open error: ");
+		perror("Open error");
 		exit(EXIT_FAILURE);
 	}
 
@@ -46,7 +46,7 @@ void main(int argc, char **argv){
 		while(act_r){
 			act_r = read(fd, buff, SIZE);
 			if(act_r == -1){
-				perror("Read error: ");
+				perror("Read error");
 				exit(EXIT_FAILURE);
 			}
 
@@ -80,7 +80,7 @@ void main(int argc, char **argv){
 		if(continous){
 			sleep(1);
 			if(lseek(fd, 0, SEEK_SET) == -1){
-				perror("Lseek error: ");
+				perror("Lseek error");
 				exit(EXIT_FAILURE);
 			}
 		}
